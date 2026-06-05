@@ -92,8 +92,24 @@ section{margin-bottom:clamp(2rem,8vw,4rem);}
 .social a{display:inline-flex;align-items:center;gap:.6rem;padding:clamp(.4rem,1.5vw,.6rem) clamp(.8rem,3vw,1.2rem);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:50px;color:#e0e0e0;text-decoration:none;transition:all .3s;font-size:clamp(.7rem,2.5vw,.9rem);font-weight:500;}
 .social a:hover{border-color:#00d4ff;background:rgba(0,212,255,.1);transform:translateY(-3px);color:#00d4ff;}
 
-/* Footer - sticky at bottom */
-footer{text-align:center;padding:clamp(1rem,3vw,2rem);border-top:1px solid rgba(255,255,255,.05);color:#666;font-size:clamp(.6rem,2vw,.8rem);margin-left:clamp(48px,8vw,72px);flex-shrink:0;background:#050505;width:calc(100% - clamp(48px,8vw,72px));}
+/* Footer - always at bottom, no scrolling past */
+footer{text-align:center;padding:clamp(1rem,3vw,2rem);border-top:1px solid rgba(255,255,255,.05);color:#666;font-size:clamp(.6rem,2vw,.8rem);margin-left:clamp(48px,8vw,72px);flex-shrink:0;background:#050505;width:calc(100% - clamp(48px,8vw,72px));position:relative;bottom:0;left:0;right:0;}
+
+/* Prevent overscroll beyond footer */
+body {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Remove any extra spacing that could cause overscroll */
+:root {
+    scroll-padding-bottom: 0;
+}
+
 .view-link{display:inline-flex;align-items:center;gap:8px;color:#00d4ff;text-decoration:none;font-size:clamp(.7rem,2.5vw,.85rem);font-weight:500;transition:gap .3s;cursor:pointer;}
 .view-link:hover{gap:12px;text-decoration:underline;}
 
